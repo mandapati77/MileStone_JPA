@@ -47,7 +47,7 @@ public class MSULogger {
 		private static String WRAPPER_FQN = null;
 		private static MSULogger instance;
 		//	hide the constructor
-		private MSULogger(Class clsLogger) {
+		private MSULogger(Class<?> clsLogger) {
 			super();
 			MSULogger.internalLogger	= org.apache.log4j.Logger.getLogger(clsLogger);
 			MSULogger.WRAPPER_FQN 		= MSULogger.class.getName();
@@ -135,7 +135,7 @@ public class MSULogger {
 		* getLogger() This is a factory method which returns CUSLogger instance by giving class name.
 		* @param  Class : clsLogger (Class in which logging is required)
 		*/
-		public static MSULogger getLogger(final Class clsLogger) {
+		public static MSULogger getLogger(final Class<?> clsLogger) {
 			if (instance == null) {
 				instance = new MSULogger(clsLogger);
 			}

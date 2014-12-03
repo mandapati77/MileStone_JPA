@@ -1,39 +1,43 @@
 package com.msu.dataobject;
 
 import java.io.Serializable;
-import javax.persistence.*;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 /**
  * The persistent class for the user_profile database table.
  * 
  */
 @Entity
-@Table(name="user_profile")
-@NamedQuery(name="UserProfile.findAll", query="SELECT u FROM UserProfile u")
+@Table(name = "user_profile")
+@NamedQuery(name = "UserProfile.findAll", query = "SELECT u FROM UserProfile u")
 public class UserProfile implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="user_id")
+	@Column(name = "user_id")
 	private String userId;
 
-	@Column(name="admin_flag")
+	@Column(name = "admin_flag")
 	private String adminFlag;
 
-	@Column(name="create_user")
+	@Column(name = "create_user")
 	private String createUser;
 
-	@Column(name="message_admin_flag")
+	@Column(name = "message_admin_flag")
 	private String messageAdminFlag;
 
-	@Column(name="modify_user")
+	@Column(name = "modify_user")
 	private String modifyUser;
 
-	@Column(name="pay_agent_locator_flag")
+	@Column(name = "pay_agent_locator_flag")
 	private String payAgentLocatorFlag;
 
-	@Column(name="screen_management")
+	@Column(name = "screen_management")
 	private String screenManagement;
 
 	public UserProfile() {

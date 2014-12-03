@@ -26,4 +26,5 @@
 	</bean> -->
 	
 	<bean id="userProfileDao" class="com.msu.impl.UserProfileDAOImpl"></bean>
+	<bean id="moduleDao" class="com.msu.impl.ModuleDAOImpl"></bean>
 </beans>
