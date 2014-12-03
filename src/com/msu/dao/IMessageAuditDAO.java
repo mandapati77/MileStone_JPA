@@ -6,7 +6,7 @@ import com.msu.dataobject.MessageAudit;
 
 public interface IMessageAuditDAO {
 	
-	public boolean insert(MessageAudit mesgAudit);
+	public boolean insert(MessageAudit  mesgAudit);
 
 	public boolean delete(MessageAudit mesgAudit);
 
