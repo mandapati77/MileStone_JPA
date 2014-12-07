@@ -6,6 +6,7 @@
 		<class>com.msu.dataobject.Message</class>
 		<class>com.msu.dataobject.Module</class>
 		<class>com.msu.dataobject.MessageAudit</class>
+		<class>com.msu.dataobject.UserProfile123</class>
 		<properties>
 			<!-- <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/gopi_spring" />

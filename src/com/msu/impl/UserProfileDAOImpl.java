@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Query;
+
+import org.eclipse.persistence.jpa.config.NamedQuery;
 
 import com.msu.dao.IUserProfileDAO;
 import com.msu.dataobject.UserProfile;
@@ -60,6 +63,21 @@ public class UserProfileDAOImpl implements IUserProfileDAO {
 	public List<UserProfile> getAllUserProfiles() {
 		EntityManager entityManager	=	DBManager.getEntityManager();
 		List<UserProfile> userProfilesList =	entityManager.createNamedQuery("UserProfile.findAll",UserProfile.class).getResultList();
+		entityManager.close();
+		return userProfilesList;
+	}
+	
+	@Override
+	public List<UserProfile> getUserProfilesByUserLike(String queryFilter) {
+		EntityManager entityManager	=	DBManager.getEntityManager();
+		String userProfileQueryByLike	=	"select u from UserProfile u where u.userId like :name ";
+		
+		Query query = entityManager.createQuery(userProfileQueryByLike,UserProfile.class);
+	    query.setParameter("name", "%"+queryFilter+"%");
+	    
+	    List<UserProfile> userProfilesList	=	query.getResultList();
+	        
+		//List<UserProfile> userProfilesList =	entityManager.createNamedQuery("UserProfile.findAll",UserProfile.class).getResultList();
 		entityManager.close();
 		return userProfilesList;
 	}

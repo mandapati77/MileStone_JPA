@@ -18,4 +18,6 @@ public interface IUserProfileDAO {
 	
 	public UserProfile getUserProfileById(String userId);
 
+	List<UserProfile> getUserProfilesByUserLike(String queryFilter);
+
 }
