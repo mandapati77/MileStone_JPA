@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import com.msu.dao.IMessageDAO;
@@ -85,8 +86,16 @@ public class MessageDAOImpl implements IMessageDAO {
 
 	@Override
 	public List<Message> getMessageByDesc(String messageDesc) {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager entityManager	=	DBManager.getEntityManager();
+		String messageQueryByLike	=	"SELECT m FROM Message m WHERE m.mcsspMesgDesc like :messageDesc ";
+		
+		Query query = entityManager.createQuery(messageQueryByLike,Message.class);
+	    query.setParameter("messageDesc", "%"+messageDesc+"%");
+	    
+	    List<Message> messageList	=	query.getResultList();
+	    
+		entityManager.close();
+		return messageList;
 	}
 
 }

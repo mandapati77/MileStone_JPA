@@ -6,8 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.Query;
 
-import org.eclipse.persistence.jpa.config.NamedQuery;
-
 import com.msu.dao.IUserProfileDAO;
 import com.msu.dataobject.UserProfile;
 import com.msu.dbutil.DBManager;
