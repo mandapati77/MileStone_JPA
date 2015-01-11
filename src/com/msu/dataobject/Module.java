@@ -15,9 +15,11 @@ import java.util.Date;
 public class Module implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	//@SequenceGenerator(name="MCSSP_MODULE_MCSSPMODULESEQNUM_GENERATOR", sequenceName="MODULE_SEQ")
+	//@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MCSSP_MODULE_MCSSPMODULESEQNUM_GENERATOR")
 	@Id
-	@SequenceGenerator(name="MCSSP_MODULE_MCSSPMODULESEQNUM_GENERATOR", sequenceName="MODULE_SEQ")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MCSSP_MODULE_MCSSPMODULESEQNUM_GENERATOR")
+	@GeneratedValue(generator="MCSSP_MODULE_SEQ_NO_GENERATOR")
+	@TableGenerator(table="MCSSP_ID_GEN",pkColumnName="GEN_NAME", valueColumnName="GEN_VALUE",pkColumnValue="MESG_SEQ_NO",name="MCSSP_MODULE_SEQ_NO_GENERATOR", allocationSize=1)
 	@Column(name="MCSSP_MODULE_SEQ_NUM")
 	private long mcsspModuleSeqNum;
 
@@ -87,5 +89,17 @@ public class Module implements Serializable {
 	public void setMcsspModuleUserId(String mcsspModuleUserId) {
 		this.mcsspModuleUserId = mcsspModuleUserId;
 	}
+
+	@Override
+	public String toString() {
+		return "Module [mcsspModuleSeqNum=" + mcsspModuleSeqNum
+				+ ", mcsspModuleActiveInd=" + mcsspModuleActiveInd
+				+ ", mcsspModuleActivityDate=" + mcsspModuleActivityDate
+				+ ", mcsspModuleDesc=" + mcsspModuleDesc + ", mcsspModuleName="
+				+ mcsspModuleName + ", mcsspModuleUserId=" + mcsspModuleUserId
+				+ "]";
+	}
+	
+	
 
 }

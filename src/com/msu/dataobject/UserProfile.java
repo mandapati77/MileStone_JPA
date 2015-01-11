@@ -99,4 +99,14 @@ public class UserProfile implements Serializable {
 		this.screenManagement = screenManagement;
 	}
 
+	@Override
+	public String toString() {
+		return "UserProfile [userId=" + userId + ", adminFlag=" + adminFlag
+				+ ", createUser=" + createUser + ", messageAdminFlag="
+				+ messageAdminFlag + ", modifyUser=" + modifyUser
+				+ ", payAgentLocatorFlag=" + payAgentLocatorFlag
+				+ ", screenManagement=" + screenManagement + "]";
+	}
+
+	
 }

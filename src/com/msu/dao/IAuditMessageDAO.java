@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.msu.dataobject.MessageAudit;
 
-public interface IMessageAuditDAO {
+public interface IAuditMessageDAO {
 	
 	public boolean insert(MessageAudit  mesgAudit);
 
@@ -19,5 +19,7 @@ public interface IMessageAuditDAO {
 	public MessageAudit getMessageBySeqNo(long moduleSeqNo, long mesgSeqNo);
 	
 	public List<MessageAudit> getMessageByDesc(String messageDesc);
+	
+	public List<MessageAudit> getMessageByVersionId(int versionSeqNo, String mesgCode);
 
 }

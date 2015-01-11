@@ -48,7 +48,7 @@ public class UserProfileDAOImpl implements IUserProfileDAO {
 	public boolean update(UserProfile userProfile) {
 		boolean updateFlag	=	false;
 		try {
-			updateFlag	=	DBManager.deleteEntity(userProfile);
+			updateFlag	=	DBManager.updateEntity(userProfile);
 		} catch(EntityNotFoundException e) {
 			//log.logError("Exception occured while udpating the record from the Database, the Object which is passed is not an Entity.", e);
 		} catch(Exception e) {
@@ -68,7 +68,7 @@ public class UserProfileDAOImpl implements IUserProfileDAO {
 	@Override
 	public List<UserProfile> getUserProfilesByUserLike(String queryFilter) {
 		EntityManager entityManager	=	DBManager.getEntityManager();
-		String userProfileQueryByLike	=	"select u from UserProfile u where u.userId like :name ";
+		String userProfileQueryByLike	=	"select u from UserProfile u where u.userId like :name order by u.userId asc ";
 		
 		Query query = entityManager.createQuery(userProfileQueryByLike,UserProfile.class);
 	    query.setParameter("name", "%"+queryFilter+"%");

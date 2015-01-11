@@ -1,6 +1,8 @@
 package com.msu.test;
 
 
+import java.util.Date;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -19,12 +21,12 @@ public class ModuleTest {
 		moduleDao	=	(IModuleDAO) context.getBean("moduleDao");
 	}
 	
-	/*@Test
+	@Test
 	public void testInsertModule() {
 		
 		Module module	=	new Module();
-		module.setMcsspModuleName("Billing");
-		module.setMcsspModuleDesc("Billing Module");
+		module.setMcsspModuleName("Service Orders");
+		module.setMcsspModuleDesc("Service Orders");
 		module.setMcsspModuleUserId("Gopikrishna");
 		module.setMcsspModuleActiveInd("Y");
 		module.setMcsspModuleActivityDate(new Date());
@@ -37,7 +39,7 @@ public class ModuleTest {
 		}
 	}
 	
-	@Test
+	/*@Test
 	public void testUpdateModule() {
 		Module module	=	new Module();
 		module.setMcsspModuleSeqNum(102);
@@ -78,7 +80,7 @@ public class ModuleTest {
 	public void testDeleteModule() {
 		Module deleteModuleObj	=	new Module();
 
-		deleteModuleObj.setMcsspModuleSeqNum(1452);
+		deleteModuleObj.setMcsspModuleSeqNum(253);
 
 		boolean deleteFlag	=	 moduleDao.delete(deleteModuleObj);
 		

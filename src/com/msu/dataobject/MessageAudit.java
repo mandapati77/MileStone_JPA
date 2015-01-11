@@ -12,7 +12,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name="MCSSP_MESG_AUDIT")
-@NamedQuery(name="McsspMesgAudit.findAll", query="SELECT m FROM MessageAudit m")
+@NamedQuery(name="MessageAudit.findAll", query="SELECT m FROM MessageAudit m")
 public class MessageAudit implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -23,6 +23,9 @@ public class MessageAudit implements Serializable {
 
 	@Column(name="MCSSP_AUDIT_MESG_ACTIVE_IND")
 	private String mcsspAuditMesgActiveInd;
+
+	@Column(name="MCSSP_AUDIT_MESG_CODE")
+	private String mcsspAuditMesgCode;
 
 	@Column(name="MCSSP_AUDIT_MESG_CODE_TYPE")
 	private String mcsspAuditMesgCodeType;
@@ -62,6 +65,14 @@ public class MessageAudit implements Serializable {
 
 	public void setMcsspAuditMesgActiveInd(String mcsspAuditMesgActiveInd) {
 		this.mcsspAuditMesgActiveInd = mcsspAuditMesgActiveInd;
+	}
+
+	public String getMcsspAuditMesgCode() {
+		return this.mcsspAuditMesgCode;
+	}
+
+	public void setMcsspAuditMesgCode(String mcsspAuditMesgCode) {
+		this.mcsspAuditMesgCode = mcsspAuditMesgCode;
 	}
 
 	public String getMcsspAuditMesgCodeType() {
@@ -120,4 +131,17 @@ public class MessageAudit implements Serializable {
 		this.mcsspAuditUserId = mcsspAuditUserId;
 	}
 
+	@Override
+	public String toString() {
+		return "MessageAudit [mcsspAuditActivityDate=" + mcsspAuditActivityDate
+				+ ", mcsspAuditMesgActiveInd=" + mcsspAuditMesgActiveInd
+				+ ", mcsspAuditMesgCode=" + mcsspAuditMesgCode
+				+ ", mcsspAuditMesgCodeType=" + mcsspAuditMesgCodeType
+				+ ", mcsspAuditMesgDesc=" + mcsspAuditMesgDesc
+				+ ", mcsspAuditMesgEditInd=" + mcsspAuditMesgEditInd
+				+ ", mcsspAuditMesgSeqNum=" + mcsspAuditMesgSeqNum
+				+ ", mcsspAuditModuleSeqNum=" + mcsspAuditModuleSeqNum
+				+ ", mcsspAuditRevison=" + mcsspAuditRevison
+				+ ", mcsspAuditUserId=" + mcsspAuditUserId + "]";
+	}
 }

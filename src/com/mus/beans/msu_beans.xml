@@ -21,4 +21,6 @@
 	<bean id="userProfileDao" class="com.msu.impl.UserProfileDAOImpl"></bean>
 	<bean id="moduleDao" class="com.msu.impl.ModuleDAOImpl"></bean>
 	<bean id="userProfile" class="com.msu.dataobject.UserProfile"></bean>
+	<bean id="messageDao" class="com.msu.impl.MessageDAOImpl"></bean>
+	<bean id="auditMessageDao" class="com.msu.impl.AuditMessageDAOImpl"></bean>
 </beans>
